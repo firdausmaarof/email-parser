@@ -11,7 +11,7 @@ class EmailProcessor
 	
 	input = @email.body.split("\n")
 	email_body = input.join(" ")
-	result_array = extract_emails_to_array(email_body).sort
+	result_array = extract_emails_to_array(email_body)
 	result_array.each{
 		|s|
 		Email.create!({ email: s.to_s })

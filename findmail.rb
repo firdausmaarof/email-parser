@@ -4,7 +4,7 @@ def extract_emails_to_array(txt)
 end
 input = "firdaus_maarof@yahoo.com taknak lah aku, pebenda lar firdausrusyd@gmail.com".split("\n")
 email_body = input.join(" ")
-result_array = extract_emails_to_array(email_body).sort
+result_array = extract_emails_to_array(email_body)
 puts result_array.size  #optional
 result_array.each{
 	|s|
