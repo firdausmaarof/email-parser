@@ -9,7 +9,7 @@ class EmailProcessor
 	  txt.scan(reg).uniq
 	end
 	
-	input = @email.body.split("\n")
+	input = @email.raw_body.split("\n")
 	email_body = input.join(" ")
 	result_array = extract_emails_to_array(email_body)
 	result_array.each{
@@ -17,6 +17,6 @@ class EmailProcessor
 		Email.create!({ email: s.to_s })
 	}
 
-    Post.create!({ body: @email.body, email: @email.from })
+    Post.create!({ body: @email.raw_body, email: @email.from })
   end
 end
