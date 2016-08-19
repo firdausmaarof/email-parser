@@ -4,9 +4,7 @@ class EmailProcessor
   end
 
   def process
-    Post.create!({ body: @email.body, email: @email.from })
-
-    def extract_emails_to_array(txt)
+  	def extract_emails_to_array(txt)
 	  reg = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/i
 	  txt.scan(reg).uniq
 	end
@@ -17,5 +15,7 @@ class EmailProcessor
 		|s|
 		Email.create!({ email: s.to_s })
 	}
+	
+    Post.create!({ body: @email.body, email: @email.from })
   end
 end
