@@ -10,12 +10,13 @@ class EmailProcessor
 	end
 	
 	input = @email.body
-	result_array = extract_emails_to_array(input.join(" ")).sort
+	email_body = input.join(" ")
+	result_array = extract_emails_to_array(email_body).sort
 	result_array.each{
 		|s|
 		Email.create!({ email: s.to_s })
 	}
-	
+
     Post.create!({ body: @email.body, email: @email.from })
   end
 end

@@ -3,8 +3,8 @@ def extract_emails_to_array(txt)
   txt.scan(reg).uniq
 end
 input = IO.readlines("in.txt")
-output = File.new("mails.txt",  "w+") 
-result_array = extract_emails_to_array(input.join(" ")).sort
+email_body = input.join(" ")
+result_array = extract_emails_to_array(email_body).sort
 puts result_array.size  #optional
 result_array.each{
 	|s|
