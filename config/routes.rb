@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   post '/email_processor' => 'griddler/emails#create'
+
+  get '/emails' => 'emails#index'
 end
